@@ -6,15 +6,43 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.sports.entity.Order;
 import com.cg.sports.repository.IOrderRepository;
 
-@Service
 public class COrderService implements IOrderService{
-	
+
+	@Override
+	public Order addOrder(Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order removeOrder(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order updateOrder(long id, Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order getOrderDetails(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Order> getAllOrders() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/*
 	@Autowired
 	IOrderRepository orderRepository;
 	
@@ -83,6 +111,6 @@ public class COrderService implements IOrderService{
 		LOGGER.info("EOrder getAllOrders()");
 		return orderRepository.findAll();
 	}
-
+*/
 	
 }

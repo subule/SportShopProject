@@ -2,7 +2,6 @@ package com.cg.sports.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Cart {
-
+/*
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
@@ -32,7 +31,7 @@ public class Cart {
 	@Column(name="ToatlBill")
 	private Double total;
 	
-	@ManyToMany(cascade = CascadeType.ALL) @JoinColumn(name="productId")
+	@ManyToMany @JoinColumn(name="productId")
 	private List<Product> product;
 
 	public Cart() {
@@ -173,5 +172,5 @@ public class Cart {
 		return "Cart [id=" + id + ", imageName=" + imageName + ", productName=" + productName + ", quantity=" + quantity
 				+ ", price=" + price + ", total=" + total + ", product=" + product + "]";
 	}
-	
+	*/
 }

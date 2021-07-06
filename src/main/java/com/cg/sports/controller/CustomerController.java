@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.sports.entity.Customer;
 import com.cg.sports.service.ICustomerService;
 
-@RestController
-@RequestMapping("/customers")
+//@RestController
+//@RequestMapping("/customers")
 public class CustomerController {
 	
-	@Autowired
+	/*@Autowired
 	private ICustomerService customerService;
 @GetMapping("/customers")
 public ResponseEntity<List<Customer>> getAllCustomers(){
@@ -50,5 +50,5 @@ public HttpStatus deleteCustomer(@PathVariable long cusId) {
 	
 }
 
-
+*/
 }

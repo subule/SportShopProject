@@ -15,43 +15,39 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Product {
-
+/*
 	@Id @Column(name="Product Id") @GeneratedValue(strategy=GenerationType.AUTO)
 	private long productId;
 
-	@NotEmpty @Column(name="Product Name")
+	@NotEmpty
 	private String productName;
 
-	@NotEmpty @Column(name="Product Category")
+	@NotEmpty
 	private String category;
 
-	@Column(name="Product Description")
 	private String description;
 
-	@Column(name="Brand")
 	private String brand;
 
-	@Column(name="Colour")
 	private String color;
 
-	@Column(name="Size")
 	private String size;
 
-	@NotNull @Column(name="M.R.P")
 	private String mrp;
-
-	@Column(name="Available Discount")
+	
 	private int discount;
 
-	@NotNull @Column(name="Discounted Price")
+	@NotNull
 	private double priceAfterDiscount;
 
-	@NotEmpty @Column(name="In Stock")
+	@NotEmpty
 	private boolean inStock;
 
-	@Column(name="Extimated Delivery Date")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate estimatedDelivery;
 	
 	@ManyToOne @JoinColumn(name="orderId")
@@ -64,9 +60,9 @@ public class Product {
 		super();
 	}
 
-	public Product(long productId, @NotEmpty String productName, @NotEmpty String category, String description,
-			String brand, String color, String size, @NotNull String mrp, int discount,
-			@NotNull double priceAfterDiscount, @NotEmpty boolean inStock, LocalDate estimatedDelivery, Order orders,
+	public Product(long productId, String productName, String category, String description,
+			String brand, String color, String size, String mrp, int discount,
+			double priceAfterDiscount, boolean inStock, LocalDate estimatedDelivery, Order orders,
 			List<Cart> cartEntity) {
 		super();
 		this.productId = productId;
@@ -298,5 +294,5 @@ public class Product {
 				+ ", estimatedDelivery=" + estimatedDelivery + ", orders=" + orders + ", cartEntity=" + cartEntity
 				+ "]";
 	}
-	
+	*/
 }

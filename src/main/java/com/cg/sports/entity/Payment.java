@@ -2,7 +2,6 @@ package com.cg.sports.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Payment {
-
+/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long paymentId;
@@ -25,7 +24,7 @@ public class Payment {
 	@NotNull(message = "payment status cannot be null")
 	private String status;
 	
-	@OneToMany(mappedBy = "payment",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "payment")
 	private List<Card> card;
 	
 	@OneToOne(mappedBy="paymentEntity") @JoinColumn(name="orderId")
@@ -35,8 +34,7 @@ public class Payment {
 		super();
 	}
 
-	public Payment(long paymentId, @NotNull(message = "payment type cannot be null") String type,
-			@NotNull(message = "payment status cannot be null") String status, List<Card> card) {
+	public Payment(long paymentId, String type, String status, List<Card> card) {
 		super();
 		this.paymentId = paymentId;
 		this.type = type;
@@ -120,5 +118,5 @@ public class Payment {
 	public String toString() {
 		return "Payment [paymentId=" + paymentId + ", type=" + type + ", status=" + status + ", card=" + card + "]";
 	}
-
+*/
 }

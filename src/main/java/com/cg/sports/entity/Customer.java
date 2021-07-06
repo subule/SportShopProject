@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -20,41 +22,38 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Customer {
 
-	@Id @NotEmpty @Column(name="Customer User ID")
-	private long userId;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private long custId;
 
-	@NotEmpty @Column(name="Customer Name") @Size(min=1, max=30)
+	@NotEmpty(message="Name cannot be empty")
 	private String name;
 
-	@NotEmpty @Column(name="Customer Email")@Email @Pattern(regexp = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/", 
-		                  message = "Enter a valid email")
+	@NotEmpty(message="Email cannot be empty") @Email 
 	private String email;
 
-	@NotNull @Column(name="Contact No.") @Size(min=10, max=10)
+	@NotNull
 	private String contactNo;
 
-	@NotNull @Column(name="Date Of Birth") @JsonFormat(pattern="yyyy-MM-dd")
+	@NotNull @JsonFormat(pattern="yyyy-MM-dd")
 	private  LocalDate dob;
 
 	@OneToOne(mappedBy="customer")
 	private User users;
 
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="customers")
 	private List<Address> addresses;
 	
-	@OneToMany(mappedBy="eCustomer",cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="eCustomer")
 	private List<Order> corders;
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(@NotEmpty long userId, @NotEmpty @Size(min = 1, max = 30) String name,
-			@NotEmpty @Email @Pattern(regexp = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/", message = "Enter a valid email") String email,
-			@NotNull @Size(min = 10, max = 10) String contactNo, @NotNull LocalDate dob, User users,
-			List<Address> addresses, List<Order> corders) {
+	public Customer(long custId, String name, String email, String contactNo, LocalDate dob, 
+					User users, List<Address> addresses, List<Order> corders) {
 		super();
-		this.userId = userId;
+		this.custId = custId;
 		this.name = name;
 		this.email = email;
 		this.contactNo = contactNo;
@@ -64,12 +63,12 @@ public class Customer {
 		this.corders = corders;
 	}
 
-	public long getUserId() {
-		return userId;
+	public long getCustId() {
+		return custId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setCustId(long custId) {
+		this.custId = custId;
 	}
 
 	public String getName() {
@@ -135,10 +134,10 @@ public class Customer {
 		result = prime * result + ((addresses == null) ? 0 : addresses.hashCode());
 		result = prime * result + ((contactNo == null) ? 0 : contactNo.hashCode());
 		result = prime * result + ((corders == null) ? 0 : corders.hashCode());
+		result = prime * result + (int) (custId ^ (custId >>> 32));
 		result = prime * result + ((dob == null) ? 0 : dob.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + (int) (userId ^ (userId >>> 32));
 		result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
@@ -167,6 +166,8 @@ public class Customer {
 				return false;
 		} else if (!corders.equals(other.corders))
 			return false;
+		if (custId != other.custId)
+			return false;
 		if (dob == null) {
 			if (other.dob != null)
 				return false;
@@ -182,8 +183,6 @@ public class Customer {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (userId != other.userId)
-			return false;
 		if (users == null) {
 			if (other.users != null)
 				return false;
@@ -194,8 +193,10 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
+		return "Customer [custId=" + custId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
 				+ ", dob=" + dob + ", users=" + users + ", addresses=" + addresses + ", corders=" + corders + "]";
 	}
+
+	
 	
 }

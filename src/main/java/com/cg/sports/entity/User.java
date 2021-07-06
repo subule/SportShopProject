@@ -11,17 +11,17 @@ import javax.validation.constraints.Pattern.List;
 @Entity
 public class User {
 
-	@Id @NotNull
+	@Id
 	private long userId;
 
 	@NotNull
-	@Pattern.List({
+	/*@Pattern.List({
      @Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain one digit."),
      @Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain one lowercase letter."),
      @Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain one upper letter."),
      @Pattern(regexp = "(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+", message ="Password must contain one special character."),
      @Pattern(regexp = "(?=\\S+$).+", message = "Password must contain no whitespace.")
-	})
+	})*/
 	private String password;
 
 	@NotEmpty
@@ -37,13 +37,7 @@ public class User {
 		super();
 	}
 
-	public User(@NotNull long userId, @NotNull @List({
-			@Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain one digit."),
-			@Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain one lowercase letter."),
-			@Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain one upper letter."),
-			@Pattern(regexp = "(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+", message = "Password must contain one special character."),
-			@Pattern(regexp = "(?=\\S+$).+", message = "Password must contain no whitespace.") }) String password,
-			@NotEmpty String role, Customer customer, Admin admin) {
+	public User(long userId, String password, String role, Customer customer, Admin admin) {
 		super();
 		this.userId = userId;
 		this.password = password;
@@ -144,5 +138,4 @@ public class User {
 				+ ", admin=" + admin + "]";
 	}
 
-	
 }

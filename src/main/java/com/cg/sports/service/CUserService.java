@@ -5,14 +5,29 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.cg.sports.entity.User;
 import com.cg.sports.repository.IUserRepository;
 
-@Service
 public class CUserService implements IUserService {
-	
+
+	@Override
+	public User signIn(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User signOut(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User changePassword(long id, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/*
 	@Autowired
 	IUserRepository userRepository;
 	
@@ -75,5 +90,5 @@ public class CUserService implements IUserService {
 			return null;
 		}
 	}
-	
+	*/
 }

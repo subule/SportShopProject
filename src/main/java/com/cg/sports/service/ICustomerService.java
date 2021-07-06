@@ -2,8 +2,11 @@ package com.cg.sports.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cg.sports.entity.Customer;
 
+@Service
 public interface ICustomerService {
 
 	public List<Customer>getAllCustomers();

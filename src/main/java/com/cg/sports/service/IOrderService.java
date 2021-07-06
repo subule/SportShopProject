@@ -2,8 +2,11 @@ package com.cg.sports.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cg.sports.entity.Order;
 
+@Service
 public interface IOrderService {
 	
 	public Order addOrder(Order order);

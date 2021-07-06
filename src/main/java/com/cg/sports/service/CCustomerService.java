@@ -4,12 +4,41 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.cg.sports.entity.Customer;
 import com.cg.sports.repository.ICustomerRepository;
 
 public class CCustomerService implements ICustomerService{
 
+	@Override
+	public List<Customer> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer addCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer updateCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer getCustomerById(long cusId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCustomer(long cusId) {
+		// TODO Auto-generated method stub
+		
+	}
+/*
 	@Autowired
 	private ICustomerRepository customerRepository;
 	@Override
@@ -63,5 +92,5 @@ public class CCustomerService implements ICustomerService{
 			//throw new CustomerNotFoundException("Record not founf by id" +cusId);
 		}
 			
-	}
+	}*/
 }

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Order {
+	/*
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private long orderId;
 
@@ -28,20 +29,20 @@ public class Order {
 	@NotNull @JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate billingDate;
 
-	@ManyToOne(cascade=CascadeType.ALL) @JoinColumn(name="Customer ID")
+	@ManyToOne @JoinColumn(name="Customer ID")
 	private Customer eCustomer;
 	
 	@OneToMany(mappedBy="orders",cascade = CascadeType.ALL)
 	private List<Product> productEntity;
 	
-	@OneToOne(cascade=CascadeType.ALL) @JoinColumn(name="paymentId")
+	@OneToOne @JoinColumn(name="paymentId")
 	private Payment paymentEntity;
 
 	public Order() {
 		super();
 	}
 
-	public Order(long orderId, @NotNull double amount, @NotNull LocalDate billingDate, Customer eCustomer,
+	public Order(long orderId, double amount, LocalDate billingDate, Customer eCustomer,
 			List<Product> productEntity, Payment paymentEntity) {
 		super();
 		this.orderId = orderId;
@@ -155,5 +156,5 @@ public class Order {
 	public String toString() {
 		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + ", eCustomer="
 				+ eCustomer + ", productEntity=" + productEntity + ", paymentEntity=" + paymentEntity + "]";
-	}
+	}*/
 }

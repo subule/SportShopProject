@@ -1,7 +1,5 @@
 package com.cg.sports.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Address {
@@ -17,25 +14,25 @@ public class Address {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private int addressId;
 
-	@NotEmpty @Column(name="Flat/Door/Plot/House No.")
+	@NotEmpty
 	private String doorNo;
 
-	@NotEmpty @Column(name="Street")
+	@NotEmpty 
 	private String street;
 
-	@NotEmpty @Column(name="Area/ Locality")
+	@NotEmpty
 	private String area;
 
-	@NotEmpty @Column(name="City")
+	@NotEmpty
 	private String city;
 
-	@NotEmpty @Column(name="State")
+	@NotEmpty
 	private String state;
 
-	@NotEmpty @Size(min=6, max=6)
+	@NotEmpty
 	private int pincode;
 
-	@ManyToOne(cascade=CascadeType.ALL) @JoinColumn(name="Customer ID")
+	@ManyToOne @JoinColumn(name="Customer ID")
 	private Customer customers;
 
 	public Address() {
@@ -186,5 +183,4 @@ public class Address {
 				+ ", city=" + city + ", state=" + state + ", pincode=" + pincode + ", customers=" + customers + "]";
 	}
 
-	
 }

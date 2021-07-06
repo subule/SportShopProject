@@ -6,7 +6,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Admin {
-
+/*
 	@Id @OneToOne(mappedBy="admin")
 	private long userId;
 
@@ -53,5 +53,5 @@ public class Admin {
 	public String toString() {
 		return "Admin [userId=" + userId + "]";
 	}
-	
+	*/
 }

@@ -17,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Card {
-	
+	/*
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name="Card Id")
 	private long id;
 	
@@ -42,9 +42,7 @@ public class Card {
 		super();
 	}
 
-	public Card(long id, @NotNull String cardName,
-			@NotNull @Size(min = 16, max = 16) @CreditCardNumber String cardNumber, LocalDate expiryDate,
-			@NotNull String bankName) {
+	public Card(long id, String cardName, String cardNumber, LocalDate expiryDate, String bankName) {
 		super();
 		this.id = id;
 		this.cardName = cardName;
@@ -144,5 +142,5 @@ public class Card {
 		return "Card [id=" + id + ", cardName=" + cardName + ", cardNumber=" + cardNumber + ", expiryDate=" + expiryDate
 				+ ", bankName=" + bankName + "]";
 	}
-
+*/
 }
